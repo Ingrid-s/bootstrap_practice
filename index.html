@@ -19,9 +19,9 @@
 
     <title>PlatziConf Hawaii</title>
   </head>
-  <body>
+  <body data-spy="scroll" data-target="#navbar" data-offset="41">
     <!--Header-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="header">
       <div class="container">
         <a class="navbar-brand" href="#">
           <img src="assets/images/platzi-logo.png" alt="logo-platzi" />
@@ -31,7 +31,7 @@
           class="navbar-toggler"
           type="button"
           data-toggle="collapse"
-          data-target="#navbarSupportedContent"
+          data-target="#navbar"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
@@ -39,22 +39,22 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">La conferencia</a>
+            <li class="nav-item">
+              <a class="nav-link" href="#main">La conferencia</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Los oradores</a>
+              <a class="nav-link" href="#speakers">Los oradores</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">El lugar y la fecha</a>
+              <a class="nav-link" href="#place-time">El lugar y la fecha</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Conviértete en orador</a>
+              <a class="nav-link" href="#conviertete-en-orador">Conviértete en orador</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-platzi" href="#">Comprar tickets</a>
+              <a class="nav-link text-platzi" href="#" data-toggle="modal" data-target="#modalCompra">Comprar tickets</a>
             </li>
           </ul>
         </div>
@@ -107,7 +107,7 @@
                   <a href="#" class="btn btn-outline-light"
                     >Quiero ser orador</a
                   >
-                  <button type="button" class="btn btn-platzi">
+                  <button type="button" class="btn btn-platzi" data-toggle="modal" data-target=#modalCompra >
                     Comprar tickets
                   </button>
                 </div>
@@ -191,7 +191,7 @@
                     >La ciencia detrás de las desiciones que tomas</span
                   >
                 </div>
-                <h5 class="card-title">Freddy Vega</h5>
+                <h5 class="card-title"><abbr data-toggle="tooltip" title="CEO of Platzi">Freddy Vega.</abbr></h5>
                 <p class="card-text">
                   Etiam pellentesque imperdiet nisi. Quisque at est nec nisi
                   ullamcorper molestie id ut odio. Integer cursus finibus nibh
@@ -219,7 +219,7 @@
                     >Tendencias de negocio 2019</span
                   >
                 </div>
-                <h5 class="card-title">Christian Van Der H.</h5>
+                <h5 class="card-title"><abbr data-toggle="tooltip" title="Co-founder of Platzi">Christian Van Der Henst.</abbr></h5>
                 <p class="card-text">
                   Mauris eget maximus magna, vel viverra odio. Vestibulum
                   consectetur hendrerit neque in pharetra. In justo est, dictum
@@ -232,6 +232,7 @@
       </div>
     </section>
     <!-- /Speakers-->
+
     <!--Lugar y fecha-->
     <section id="place-time">
         <div class="container-fluid">
@@ -252,7 +253,7 @@
     <!-- /Lugar y fecha-->
 
     <!-- Conviértete en Orador-->
-    <section id="conviertete-en-orador" class="pt-2 pb-3">
+    <section id="conviertete-en-orador" class="pt-3 pb-3">
         <div class="container">
             <div class="row">
                <div class="col text-uppercase text-center">
@@ -262,7 +263,7 @@
             </div>
             <div class="row">
                 <div class="col text-center">
-                    Anótate para dar una charla ignite.
+                    Anótate para dar una <abbr data-toggle="tooltip" title="Charlas de 5 mínutos">charla ignite.</abbr>
                     Cuéntanos de que quieres hablar.
                 </div>
             </div>
@@ -283,6 +284,11 @@
                                   <small class="form-text text-muted">
                                     Recuerda incluir un título para tu charla
                                   </small>
+                                </div>
+                              </div>
+                              <div class="form-row">
+                                <div class="col">
+                                  <button type="button" class="btn btn-platzi btn-block">Enviar</button>
                                 </div>
                               </div>
                         </form>
@@ -319,7 +325,46 @@
     </footer>
     <!-- /Footer-->
 
+    <!-- Modal -->
+    <div class="modal fade" id="modalCompra" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Comprar tickets</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <div class="form-row">
+                <div class="form-group col">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">@</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+              </div>
+            </form>
+            <!--Alerta-->
+            <div class="alert alert-warning" role="alert">
+              Recibiras un correo de confirmación si eres elegido para ir a Hawaii
+            </div>
+            <!-- /Alerta-->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-platzi">Comprar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Modal-->
+
     <!-- Optional JavaScript -->
+    
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -336,5 +381,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script src="index.js"></script>
   </body>
 </html>
